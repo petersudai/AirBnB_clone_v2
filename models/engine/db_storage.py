@@ -40,3 +40,21 @@ class DBStorage:
 
     def save(self):
         """Save changes"""
+        self.__session.commit()
+
+    def delete(self, obj=None):
+        """Deletes an object"""
+        if obj is not None:
+            self.session.delete(obj)
+
+    def reload(self):
+        """Creates all tables and current database session"""
+        Base.metadata.create_all(self.engine)
+        session_factory = sessionmaker(bind=self.__engine,
+                                       expire_on_commit=False)
+        Session = scoped_session(session_factory)
+        self.__session = Session()
+
+    def close(self):
+        """Calls remove() method on the private session attribute"""
+        self.__session.close()
