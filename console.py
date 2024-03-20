@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """ Console Module """
-import cmd
 import sys
+sys.path.append('/AirBnB_clone')
+import cmd
 from models.base_model import BaseModel
 from models import storage
 from datetime import datetime
