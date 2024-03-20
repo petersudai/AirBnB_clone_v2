@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ State Module for HBNB project """
+import sys
+sys.path.append('/AirBnB_clone')
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship

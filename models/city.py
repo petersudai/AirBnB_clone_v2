@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ City Module for HBNB project """
+import sys
+sys.path.append('/AirBnB_clone')
 from models.base_model import BaseModel, Base
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, ForeignKey

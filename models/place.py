@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ Place Module for HBNB project """
+import sys
+sys.path.append('/AirBnB_clone')
 from models.base_model import BaseModel, Base
 import models
 from os import getenv

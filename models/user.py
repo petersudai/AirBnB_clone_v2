@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """This module defines a class User"""
+import sys
+sys.path.append('/AirBnB_clone')
 from models.base_model import BaseModel, Base
 import sqlalchemy
 from sqlalchemy import Column, String
