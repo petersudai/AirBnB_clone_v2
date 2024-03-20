@@ -30,12 +30,11 @@ class DBStorage:
 
     def all(self, cls=None):
         """Returns all objects"""
-        from models.stae import State
-        from models.city import City
+        classes = [User, State, City, Amenity, Place, Review]
+        objs = []
         if cls is None:
-            objs = self.__session.query(State).all() + \
-                self.__session.query(City).all()
-
+            for c in classes:
+            objs += self.__session.query(c).all()
         else:
             objs = self.__session.query(cls).all()
         return {'{}.{}'.format(type(obj).__name, obj.id): obj
