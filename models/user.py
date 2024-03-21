@@ -1,23 +1,11 @@
 #!/usr/bin/python3
 """This module defines a class User"""
-import sys
-sys.path.append('/AirBnB_clone')
-from models.base_model import BaseModel, Base
-import sqlalchemy
-from sqlalchemy import Column, String
-from sqlalchemy.orm import relationship
+from models.base_model import BaseModel
 
-class User(BaseModel, Base):
+
+class User(BaseModel):
     """This class defines a user by various attributes"""
-    __tablename__ = 'users'
-    email = Column(String(128), nullable=False)
-    password = Column(String(128), nullable=False)
-    first_name = Column(String(128), nullable=True)
-    last_name = Column(String(128), nullable=True)
-    places = relationship("Place", back_populates="user")
-    reviews = relationship("Review", backref="user")
-
-    def __init__(self, *args, **kwargs):
-        """Initiliazes the user"""
-        super().__init__(*args, **kwargs)
-
+    email = ''
+    password = ''
+    first_name = ''
+    last_name = ''
