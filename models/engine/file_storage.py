@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """This module defines a class to manage file storage for hbnb clone"""
+import sys
+sys.path.append('/AirBnB_clone')
 import json
 from datetime import datetime
 from models.base_model import BaseModel
@@ -9,6 +11,7 @@ from models.state import State
 from models.amenity import Amenity
 from models.city import City
 from models.review import Review
+
 
 class FileStorage:
     """This class manages storage of hbnb models in JSON format"""

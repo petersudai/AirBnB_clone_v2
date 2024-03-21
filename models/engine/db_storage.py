@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """Module for database storage"""
+import sys
+sys.path.append('/AirBnB_clone')
 from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
-from models.base_model import Base
 from models.user import User
 from models.state import State
 from models.city import City
@@ -31,7 +32,7 @@ class DBStorage:
     def all(self, cls=None):
         """Returns all objects"""
         classes = (User, State, City, Amenity, Place, Review)
-        objs = dict()
+        objs = {}
 
         if cls is None:
             for item in classes:
@@ -40,7 +41,7 @@ class DBStorage:
                     obj_key = '{}.{}'.format(obj.__class__.name__, obj.id)
                     objs[obj_key] = obj
         else:
-            query = self.__session.query(cl)
+            query = self.__session.query(cls)
             for obj in query.all():
                 obj_key = '{}.{}'.format(obj.__class__.__name__, obj.id)
                 objs[obj_key] = obj
@@ -57,7 +58,7 @@ class DBStorage:
     def delete(self, obj=None):
         """Deletes an object"""
         if obj is not None:
-            self.session.delete(obj)
+            self.__session.delete(obj)
 
     def reload(self):
         """Creates all tables and current database session"""
@@ -69,4 +70,4 @@ class DBStorage:
 
     def close(self):
         """Calls remove() method on the private session attribute"""
-        self.__session.close()
+        self.__session.remove()
