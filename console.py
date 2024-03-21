@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """ Console Module """
 import sys
-sys.path.append('/AirBnB_clone')
 import cmd
 from models.base_model import BaseModel
-from models import storage
+from models.__init__ import storage
 from datetime import datetime
 from models.user import User
 from models.place import Place
