@@ -2,6 +2,7 @@
 """Module for database storage"""
 import sys
 sys.path.append('/AirBnB_clone')
+from models.base_model import Base
 from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
