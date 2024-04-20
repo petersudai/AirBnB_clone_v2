@@ -52,6 +52,10 @@ class FileStorage:
         except FileNotFoundError:
             pass
 
+    def close(self):
+        """display our HBNB data"""
+        self.reload()
+
     def delete(self, obj=None):
         """Deletes obj from __objects"""
         if obj is not None:
@@ -59,7 +63,3 @@ class FileStorage:
             if key in self.__objects:
                 del self.__objects[key]
                 self.save()
-
-    def close(self):
-        """Method for deserializing the JSON file to objects"""
-        self.reload()
